@@ -70,7 +70,7 @@ const Toppings = ({
   setToppingType,
 }) => {
   useEffect(() => {
-    fetch("http://localhost:3000/crusts").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/crusts").then((r) => {
       if (r.ok) {
         r.json().then(setCrusts);
       } else {
@@ -82,7 +82,7 @@ const Toppings = ({
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/sauces").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/sauces").then((r) => {
       if (r.ok) {
         r.json().then(setSauces);
       } else {
@@ -94,7 +94,7 @@ const Toppings = ({
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/meats").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/meats").then((r) => {
       if (r.ok) {
         r.json().then(setMeats);
       } else {
@@ -106,7 +106,7 @@ const Toppings = ({
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:3000/veggies").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/veggies").then((r) => {
       if (r.ok) {
         r.json().then(setVeggies);
       } else {
@@ -130,7 +130,7 @@ const Toppings = ({
     };
 
     if (toppingType === "Crust") {
-      fetch(`http://localhost:3000/crusts`, {
+      fetch(`https://backend-phase-5-project.herokuapp.com/crusts`, {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
@@ -142,18 +142,20 @@ const Toppings = ({
           } else {
             setToppingType("");
             setTopping("");
-            fetch("http://localhost:3000/crusts").then((r) => {
-              if (r.ok) {
-                r.json().then(setCrusts);
-              } else {
-                r.json().then((error) => console.log(error.errors));
-                // navigate("/login");
+            fetch("https://backend-phase-5-project.herokuapp.com/crusts").then(
+              (r) => {
+                if (r.ok) {
+                  r.json().then(setCrusts);
+                } else {
+                  r.json().then((error) => console.log(error.errors));
+                  // navigate("/login");
+                }
               }
-            });
+            );
           }
         });
     } else if (toppingType === "Sauce") {
-      fetch(`http://localhost:3000/sauces`, {
+      fetch(`https://backend-phase-5-project.herokuapp.com/sauces`, {
         method: "POST",
         headers: headers,
         body: JSON.stringify(body),
@@ -165,18 +167,20 @@ const Toppings = ({
           } else {
             setToppingType("");
             setTopping("");
-            fetch("http://localhost:3000/sauces").then((r) => {
-              if (r.ok) {
-                r.json().then(setSauces);
-              } else {
-                r.json().then((error) => console.log(error.errors));
-                // navigate("/login");
+            fetch("https://backend-phase-5-project.herokuapp.com/sauces").then(
+              (r) => {
+                if (r.ok) {
+                  r.json().then(setSauces);
+                } else {
+                  r.json().then((error) => console.log(error.errors));
+                  // navigate("/login");
+                }
               }
-            });
+            );
           }
         });
     } else if (toppingType === "Meat" || toppingType === "Veggies") {
-      fetch(`http://localhost:3000/toppings`, {
+      fetch(`https://backend-phase-5-project.herokuapp.com/toppings`, {
         method: "POST",
         headers: headers,
         body: JSON.stringify({
@@ -191,22 +195,26 @@ const Toppings = ({
           } else {
             setToppingType("");
             setTopping("");
-            fetch("http://localhost:3000/meats").then((r) => {
-              if (r.ok) {
-                r.json().then(setMeats);
-              } else {
-                r.json().then((error) => console.log(error.errors));
-                // navigate("/login");
+            fetch("https://backend-phase-5-project.herokuapp.com/meats").then(
+              (r) => {
+                if (r.ok) {
+                  r.json().then(setMeats);
+                } else {
+                  r.json().then((error) => console.log(error.errors));
+                  // navigate("/login");
+                }
               }
-            });
-            fetch("http://localhost:3000/veggies").then((r) => {
-              if (r.ok) {
-                r.json().then(setVeggies);
-              } else {
-                r.json().then((error) => console.log(error.errors));
-                // navigate("/login");
+            );
+            fetch("https://backend-phase-5-project.herokuapp.com/veggies").then(
+              (r) => {
+                if (r.ok) {
+                  r.json().then(setVeggies);
+                } else {
+                  r.json().then((error) => console.log(error.errors));
+                  // navigate("/login");
+                }
               }
-            });
+            );
           }
         });
     }
@@ -220,21 +228,23 @@ const Toppings = ({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/crusts/${c.id}`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/crusts/${c.id}`, {
       method: "DELETE",
       headers: headers,
     }).then((r) => {
       if (r.ok) {
         console.log("deleted");
 
-        fetch("http://localhost:3000/crusts").then((r) => {
-          if (r.ok) {
-            r.json().then(setCrusts);
-          } else {
-            r.json().then((error) => console.log(error.errors));
-            // navigate("/login");
+        fetch("https://backend-phase-5-project.herokuapp.com/crusts").then(
+          (r) => {
+            if (r.ok) {
+              r.json().then(setCrusts);
+            } else {
+              r.json().then((error) => console.log(error.errors));
+              // navigate("/login");
+            }
           }
-        });
+        );
       } else {
         r.json().then((error) => console.log(error.errors));
       }
@@ -249,21 +259,23 @@ const Toppings = ({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/sauces/${s.id}`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/sauces/${s.id}`, {
       method: "DELETE",
       headers: headers,
     }).then((r) => {
       if (r.ok) {
         console.log("deleted");
 
-        fetch("http://localhost:3000/sauces").then((r) => {
-          if (r.ok) {
-            r.json().then(setSauces);
-          } else {
-            r.json().then((error) => console.log(error.errors));
-            // navigate("/login");
+        fetch("https://backend-phase-5-project.herokuapp.com/sauces").then(
+          (r) => {
+            if (r.ok) {
+              r.json().then(setSauces);
+            } else {
+              r.json().then((error) => console.log(error.errors));
+              // navigate("/login");
+            }
           }
-        });
+        );
       } else {
         r.json().then((error) => console.log(error.errors));
       }
@@ -278,30 +290,34 @@ const Toppings = ({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/toppings/${t.id}`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/toppings/${t.id}`, {
       method: "DELETE",
       headers: headers,
     }).then((r) => {
       if (r.ok) {
         console.log("deleted");
 
-        fetch("http://localhost:3000/meats").then((r) => {
-          if (r.ok) {
-            r.json().then(setMeats);
-          } else {
-            r.json().then((error) => console.log(error.errors));
-            // navigate("/login");
+        fetch("https://backend-phase-5-project.herokuapp.com/meats").then(
+          (r) => {
+            if (r.ok) {
+              r.json().then(setMeats);
+            } else {
+              r.json().then((error) => console.log(error.errors));
+              // navigate("/login");
+            }
           }
-        });
+        );
 
-        fetch("http://localhost:3000/veggies").then((r) => {
-          if (r.ok) {
-            r.json().then(setVeggies);
-          } else {
-            r.json().then((error) => console.log(error.errors));
-            // navigate("/login");
+        fetch("https://backend-phase-5-project.herokuapp.com/veggies").then(
+          (r) => {
+            if (r.ok) {
+              r.json().then(setVeggies);
+            } else {
+              r.json().then((error) => console.log(error.errors));
+              // navigate("/login");
+            }
           }
-        });
+        );
       } else {
         r.json().then((error) => console.log(error.errors));
       }

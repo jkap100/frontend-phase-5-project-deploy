@@ -58,7 +58,7 @@ function Cart({
     };
 
     fetch(
-      `http://localhost:3000/carts?user_id=${localStorage.getItem(
+      `https://backend-phase-5-project.herokuapp.com/carts?user_id=${localStorage.getItem(
         "currentUserId"
       )}`,
       {
@@ -114,7 +114,7 @@ function Cart({
     };
 
     fetch(
-      `http://localhost:3000/carts/?user_id=${localStorage.getItem(
+      `https://backend-phase-5-project.herokuapp.com/carts/?user_id=${localStorage.getItem(
         "currentUserId"
       )}`,
       {
@@ -130,11 +130,14 @@ function Cart({
           console.log(r.length);
           // console.log(r.length);
           for (let i = 0; i < r.length; i++) {
-            fetch(`http://localhost:3000/pizza_orders/${r[i].id}`, {
-              method: "PATCH",
-              headers: headers,
-              body: JSON.stringify(body),
-            })
+            fetch(
+              `https://backend-phase-5-project.herokuapp.com/pizza_orders/${r[i].id}`,
+              {
+                method: "PATCH",
+                headers: headers,
+                body: JSON.stringify(body),
+              }
+            )
               .then((r) => r.json())
               .then((r) => {
                 if (r.error) {
@@ -142,7 +145,7 @@ function Cart({
                 } else {
                   // console.log(r);
                   fetch(
-                    `http://localhost:3000/carts/?user_id=${localStorage.getItem(
+                    `https://backend-phase-5-project.herokuapp.com/carts/?user_id=${localStorage.getItem(
                       "currentUserId"
                     )}`,
                     {

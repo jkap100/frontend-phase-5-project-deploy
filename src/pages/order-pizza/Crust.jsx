@@ -64,7 +64,7 @@ function Crust({
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/crusts").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/crusts").then((r) => {
       if (r.ok) {
         r.json().then(setCrusts);
       } else {

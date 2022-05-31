@@ -30,16 +30,16 @@ function Orders({
   setStoreState,
 }) {
   useEffect(() => {
-    fetch(`http://localhost:3000/stores_by_state?state=${storeState}`).then(
-      (r) => {
-        if (r.ok) {
-          r.json().then(setLocations);
-        } else {
-          r.json().then((error) => console.log(error.errors));
-          // navigate("/login");
-        }
+    fetch(
+      `https://backend-phase-5-project.herokuapp.com/stores_by_state?state=${storeState}`
+    ).then((r) => {
+      if (r.ok) {
+        r.json().then(setLocations);
+      } else {
+        r.json().then((error) => console.log(error.errors));
+        // navigate("/login");
       }
-    );
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [storeState]);
 
@@ -55,7 +55,7 @@ function Orders({
     };
 
     fetch(
-      `http://localhost:3000/orders?store_id=${storeLocationId}&order_type=${orderType}&status=${status}`,
+      `https://backend-phase-5-project.herokuapp.com/orders?store_id=${storeLocationId}&order_type=${orderType}&status=${status}`,
       {
         method: "GET",
         headers: headers,
@@ -87,11 +87,14 @@ function Orders({
         status: "Filled",
       };
 
-      fetch(`http://localhost:3000/pizza_orders/${order.id}`, {
-        method: "PATCH",
-        headers: headers,
-        body: JSON.stringify(body),
-      })
+      fetch(
+        `https://backend-phase-5-project.herokuapp.com/pizza_orders/${order.id}`,
+        {
+          method: "PATCH",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      )
         .then((r) => r.json())
         .then((r) => {
           if (r.error) {
@@ -100,7 +103,7 @@ function Orders({
             console.log(r);
 
             fetch(
-              `http://localhost:3000/orders?store_id=${storeLocationId}&order_type=${orderType}&status=${status}`,
+              `https://backend-phase-5-project.herokuapp.com/orders?store_id=${storeLocationId}&order_type=${orderType}&status=${status}`,
               {
                 method: "GET",
                 headers: headers,

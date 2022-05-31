@@ -64,7 +64,7 @@ function Veggies({
   pizza,
 }) {
   useEffect(() => {
-    fetch("http://localhost:3000/veggies").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/veggies").then((r) => {
       if (r.ok) {
         r.json().then(setVeggies);
       } else {

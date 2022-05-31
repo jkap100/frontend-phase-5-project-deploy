@@ -34,15 +34,18 @@ function CartItems({ cartObj, cart, setCart }) {
     const body = {
       quantity: p.quantity + 1,
     };
-    fetch(`http://localhost:3000/pizza_orders/${p.id}`, {
-      method: "PATCH",
-      headers: headers,
-      body: JSON.stringify(body),
-    }).then((r) => {
+    fetch(
+      `https://backend-phase-5-project.herokuapp.com/pizza_orders/${p.id}`,
+      {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify(body),
+      }
+    ).then((r) => {
       if (r.ok) {
         console.log("added");
         fetch(
-          `http://localhost:3000/carts?user_id=${localStorage.getItem(
+          `https://backend-phase-5-project.herokuapp.com/carts?user_id=${localStorage.getItem(
             "currentUserId"
           )}`,
           {
@@ -75,17 +78,20 @@ function CartItems({ cartObj, cart, setCart }) {
     };
 
     if (p.quantity - 1 <= 0) {
-      fetch(`http://localhost:3000/pizza_orders/${p.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.token}`,
-        },
-      }).then((r) => {
+      fetch(
+        `https://backend-phase-5-project.herokuapp.com/pizza_orders/${p.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token}`,
+          },
+        }
+      ).then((r) => {
         if (r.ok) {
           console.log("ok");
           fetch(
-            `http://localhost:3000/carts?user_id=${localStorage.getItem(
+            `https://backend-phase-5-project.herokuapp.com/carts?user_id=${localStorage.getItem(
               "currentUserId"
             )}`,
             {
@@ -105,15 +111,18 @@ function CartItems({ cartObj, cart, setCart }) {
         }
       });
     } else {
-      fetch(`http://localhost:3000/pizza_orders/${p.id}`, {
-        method: "PATCH",
-        headers: headers,
-        body: JSON.stringify(body),
-      }).then((r) => {
+      fetch(
+        `https://backend-phase-5-project.herokuapp.com/pizza_orders/${p.id}`,
+        {
+          method: "PATCH",
+          headers: headers,
+          body: JSON.stringify(body),
+        }
+      ).then((r) => {
         if (r.ok) {
           console.log("added");
           fetch(
-            `http://localhost:3000/carts?user_id=${localStorage.getItem(
+            `https://backend-phase-5-project.herokuapp.com/carts?user_id=${localStorage.getItem(
               "currentUserId"
             )}`,
             {

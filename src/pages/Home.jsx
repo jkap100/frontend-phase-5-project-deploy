@@ -42,7 +42,7 @@ const startOrder = () => {
     address_id: "",
   };
 
-  fetch("http://localhost:3000/pizza_orders", {
+  fetch("https://backend-phase-5-project.herokuapp.com/pizza_orders", {
     method: "POST",
     headers: headers,
     body: JSON.stringify(body),

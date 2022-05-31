@@ -34,7 +34,7 @@ function Signup({
       email: email,
     };
 
-    fetch("http://localhost:3000/users", {
+    fetch("https://backend-phase-5-project.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

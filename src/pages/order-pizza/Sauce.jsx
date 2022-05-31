@@ -63,7 +63,7 @@ function Sauce({
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3000/sauces").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/sauces").then((r) => {
       if (r.ok) {
         r.json().then(setSauces);
       } else {

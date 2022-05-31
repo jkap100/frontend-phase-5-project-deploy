@@ -146,7 +146,7 @@ function AnimatedRoutes() {
     };
     // console.log(body);
 
-    fetch(`http://localhost:3000/pizza_orders`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/pizza_orders`, {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body),
@@ -166,14 +166,17 @@ function AnimatedRoutes() {
               topping_id: veggiesOrder[i].id,
               pizza_order_id: orderId,
             };
-            fetch(`http://localhost:3000/pizza_order_toppings`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.token}`,
-              },
-              body: JSON.stringify(vToppings),
-            })
+            fetch(
+              `https://backend-phase-5-project.herokuapp.com/pizza_order_toppings`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${localStorage.token}`,
+                },
+                body: JSON.stringify(vToppings),
+              }
+            )
               .then((response) => response.json())
               .then((result) => {
                 if (result.error) {
@@ -188,14 +191,17 @@ function AnimatedRoutes() {
               topping_id: meatsOrder[i].id,
               pizza_order_id: orderId,
             };
-            fetch(`http://localhost:3000/pizza_order_toppings`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.token}`,
-              },
-              body: JSON.stringify(mToppings),
-            })
+            fetch(
+              `https://backend-phase-5-project.herokuapp.com/pizza_order_toppings`,
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: `Bearer ${localStorage.token}`,
+                },
+                body: JSON.stringify(mToppings),
+              }
+            )
               .then((response) => response.json())
               .then((result) => {
                 if (result.error) {

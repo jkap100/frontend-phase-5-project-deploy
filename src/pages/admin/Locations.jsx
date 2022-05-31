@@ -169,7 +169,7 @@ export default function Locations({
   }
 
   useEffect(() => {
-    fetch("http://localhost:3000/stores").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/stores").then((r) => {
       if (r.ok) {
         r.json().then(setLocations);
       } else {
@@ -247,7 +247,7 @@ export default function Locations({
       lng: lng,
     };
 
-    fetch(`http://localhost:3000/stores`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/stores`, {
       method: "POST",
       headers: headers,
       body: JSON.stringify(body),

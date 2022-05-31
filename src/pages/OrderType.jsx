@@ -77,7 +77,7 @@ function OrderType({
       Authorization: `Bearer ${localStorage.token}`,
     };
 
-    fetch(`http://localhost:3000/stores/${store.id}`, {
+    fetch(`https://backend-phase-5-project.herokuapp.com/stores/${store.id}`, {
       method: "GET",
       headers: headers,
     }).then((r) => {

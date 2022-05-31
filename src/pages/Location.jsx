@@ -14,7 +14,7 @@ function Location() {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/stores").then((r) => {
+    fetch("https://backend-phase-5-project.herokuapp.com/stores").then((r) => {
       if (r.ok) {
         r.json().then(setLocations);
       } else {
