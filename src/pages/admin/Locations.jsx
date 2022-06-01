@@ -141,7 +141,7 @@ export default function Locations({
   mapLocation,
   setMapLocation,
 }) {
-  Geocode.setApiKey(process.env.REACT_APP_MAP_API);
+  Geocode.setApiKey(AIzaSyCLg4PLkCysuXyi4XFB_3 - hWIFrhk9eId0);
   // const [locations, setLocations] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [lat, setLat] = useState("");
@@ -181,7 +181,7 @@ export default function Locations({
   }, []);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_MAP_API,
+    googleMapsApiKey: AIzaSyCLg4PLkCysuXyi4XFB_3 - hWIFrhk9eId0,
     libraries,
   });
 
