@@ -42,18 +42,7 @@ const startOrder = () => {
     address_id: "",
   };
 
-  fetch("https://backend-phase-5-project.herokuapp.com/pizza_orders", {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify(body),
-  }).then((r) => {
-    if (r.ok) {
-      alert("Added to cart");
-    } else {
-      r.json().then((err) => console.log(err.errors));
-    }
-  });
-};
+ 
 
 function Home() {
   return (
@@ -70,7 +59,7 @@ function Home() {
         <motion.button
           variants={buttonVariants}
           whileHover="hover"
-          onClick={startOrder}
+          
         >
           Create Your Pizza
         </motion.button>
