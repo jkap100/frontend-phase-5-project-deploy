@@ -148,7 +148,7 @@ export default function Map({
   }, [mapLocation]);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: AIzaSyCLg4PLkCysuXyi4XFB_3 - hWIFrhk9eId0,
+    googleMapsApiKey: process.env.REACT_APP_MAP_API,
     libraries,
   });
 

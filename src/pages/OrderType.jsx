@@ -94,7 +94,7 @@ function OrderType({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  Geocode.setApiKey(AIzaSyCLg4PLkCysuXyi4XFB_3 - hWIFrhk9eId0);
+  Geocode.setApiKey(process.env.REACT_APP_MAP_API);
 
   Geocode.fromAddress("10435 SW 63rd Dr Portland OR 97219").then(
     (response) => {
