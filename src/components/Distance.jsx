@@ -8,7 +8,7 @@ function Distance() {
   const [lng1, setLng1] = useState("");
   const [lng2, setLng2] = useState(-120);
 
-  Geocode.setApiKey(process.env.REACT_APP_MAP_API);
+  Geocode.setApiKey(AIzaSyCLg4PLkCysuXyi4XFB_3 - hWIFrhk9eId0);
 
   Geocode.fromAddress("10435 SW 63rd Dr Portland OR 97219").then(
     (response) => {
