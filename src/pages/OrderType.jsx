@@ -130,7 +130,7 @@ function OrderType({
     // for miles
     let r = 3956;
 
-    // calculate the result
+    // calculate the results
     return c * r;
   }
 
